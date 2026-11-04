@@ -4,7 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<title>Christian Libuna Portfolio</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Christian Libuna | Azure Cloud and Infrastructure Engineer">
+<meta property="og:description" content="Azure cloud and infrastructure engineer in Metro Manila. 5+ years with Azure, Citrix virtual desktops, Entra ID and Intune: automation, monitoring and incident leadership.">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/og-image.png">
+<meta name="author" content="Christian Libuna">
+<title>Christian Libuna | Azure Cloud and Infrastructure Engineer</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Christian Libuna, Cloud and Infrastructure Engineer: Azure, Citrix VDI, Entra ID and Intune. Projects, architecture diagrams, skills and certifications.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,7 +81,8 @@ img, svg { display: block; max-width: 100%; }
 img { -webkit-user-drag: none; }
 a { color: inherit; }
 button, input { font: inherit; color: inherit; }
-input { -webkit-user-select: text; user-select: text; }
+input, #view-experience, #view-contact { -webkit-user-select: text; user-select: text; -webkit-touch-callout: default; }
+#view-contact .btn { -webkit-user-select: none; user-select: none; }
 h1, h2, h3, h4 { margin: 0; color: var(--ink); text-wrap: balance; }
 p { margin: 0; text-wrap: pretty; }
 ul, ol, dl, dd { margin: 0; padding: 0; }
@@ -299,6 +309,11 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
 .project p { color: var(--muted); font-size: .92rem; }
 .metric { display: inline-flex; align-items: baseline; gap: 6px; width: fit-content; padding: 4px 10px; border-radius: 9px; background: var(--amber-soft); color: var(--amber); font-size: .8rem; font-weight: 600; }
 .metric b { font: 800 1.05rem var(--display); }
+@media (min-width: 641px) {
+  .project > summary h4 { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; min-height: 2.5em; }
+  .project > summary > p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; line-height: 1.55; min-height: 4.65em; }
+}
+.project-foot { min-height: 36px; }
 .project-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
 .open-hint { color: var(--accent); font-size: .84rem; font-weight: 600; white-space: nowrap; }
 
@@ -357,6 +372,14 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
 .skill:hover { border-color: var(--accent); color: var(--accent); }
 .skill[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); box-shadow: 0 6px 20px var(--glow); }
 .skill.new { border-color: var(--accent-2); }
+.skill.certd { position: relative; }
+.skill.certd::after { content: ""; position: absolute; top: -3px; right: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 0 2px var(--bg); }
+.backed { display: grid; gap: 8px; }
+.backed a { display: flex; align-items: center; gap: 10px; padding: 6px 10px 6px 6px; border-radius: 12px; border: 1px solid var(--line); color: var(--body); text-decoration: none; font-size: .84rem; }
+.backed a:hover { border-color: var(--amber); }
+.backed img { width: 34px; height: 34px; object-fit: contain; flex: 0 0 auto; }
+.skills-key { display: flex; align-items: center; gap: 8px; font-size: .8rem; color: var(--muted); }
+.skills-key i { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
 .skill-detail { position: sticky; top: 24px; padding: 22px; display: grid; gap: 12px; }
 .skill-detail h4 { font: 800 1.5rem var(--display); letter-spacing: -.02em; }
 .skill-detail p { color: var(--muted); font-size: .92rem; }
@@ -366,6 +389,117 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
 .used-in button:hover { border-color: var(--accent); }
 .used-in strong { color: var(--ink); font-weight: 600; font-size: .92rem; }
 .used-in span { color: var(--muted); font-size: .8rem; }
+
+
+/* ---------- Interactive labs ---------- */
+.lab { display: grid; }
+.lab[hidden] { display: none; }
+.lab-head { display: flex; gap: 14px; align-items: flex-start; }
+.lab-head h4 { font: 700 1.15rem/1.25 var(--display); color: var(--ink); }
+.lab-head p { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+.lab-ic .sic { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: var(--accent-ink); }
+.lab-ic .sic svg { width: 22px; height: 22px; }
+.lab-ic .sic svg .f { fill-opacity: .3; }
+.lab-grid { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: 22px; align-items: start; }
+.lab-controls { display: grid; gap: 14px; }
+.lab-controls label { display: grid; gap: 6px; font-size: .84rem; color: var(--body); }
+.lab-controls label > span { display: flex; justify-content: space-between; gap: 8px; }
+.lab-controls b { font: 600 .82rem var(--mono); color: var(--amber); }
+.lab input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 99px; background: var(--line-strong); outline: none; -webkit-user-select: none; user-select: none; }
+.lab input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--accent); cursor: pointer; }
+.lab input[type=range]::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); cursor: pointer; }
+.lab input[type=range]:focus-visible { box-shadow: 0 0 0 3px var(--accent-soft); }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg .seg-label { width: 100%; font-size: .84rem; color: var(--body); }
+.seg button { padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line-strong); background: transparent; color: var(--body); font: 500 .8rem var(--sans); cursor: pointer; }
+.seg button:hover { border-color: var(--accent); color: var(--accent); }
+.seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.lab-out { display: grid; gap: 10px; min-width: 0; }
+.lab-chart { width: 100%; height: auto; display: block; border-radius: 12px; background: var(--accent-soft); }
+.lab-chart text { font: 500 10px var(--mono); fill: var(--muted); }
+.lab-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .78rem; color: var(--muted); }
+.lab-legend i { display: inline-block; width: 14px; height: 4px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.lg-always { background: var(--muted); }
+.lg-auto { background: var(--accent); }
+.lg-users { background: var(--accent-2); }
+.lg-thr { background: var(--amber); }
+.lg-fire { background: var(--red); }
+.lg-inc { background: var(--amber-soft); outline: 1px dashed var(--amber); }
+.lab-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.lab-stats div { padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); display: grid; gap: 2px; }
+.lab-stats span { font-size: .76rem; color: var(--muted); }
+.lab-stats b { font: 700 1.2rem var(--display); color: var(--ink); }
+.lab-stats small { font-size: .74rem; color: var(--muted); }
+.lab-stats .hl { border-color: var(--amber); background: var(--amber-soft); }
+.lab-stats .hl b { color: var(--amber); }
+.lab-note { font-size: .78rem; color: var(--muted); }
+.lab-verdict { display: flex; flex-wrap: wrap; gap: 8px; }
+.lab-verdict span { padding: 4px 11px; border-radius: 999px; font: 600 .8rem var(--sans); }
+.lab-verdict .good { background: var(--ok-soft); color: var(--accent-2); }
+.lab-verdict .bad { background: var(--red-soft); color: var(--red); }
+.lab-verdict .warn { background: var(--amber-soft); color: var(--amber); }
+.kql { margin: 0; padding: 14px 16px; border-radius: 12px; background: var(--accent-soft); border: 1px solid var(--line); overflow-x: auto; font: 500 .8rem/1.6 var(--mono); color: var(--body); }
+.kql .k { color: var(--accent); }
+.kql .n { color: var(--amber); }
+.kql .s { color: var(--accent-2); }
+.kql .c { color: var(--muted); }
+@media (max-width: 860px) { .lab-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .lab-chart text { font-size: 15px; } .lab-stats b { font-size: 1rem; } .lab-stats div { padding: 8px; } }
+
+
+/* ---------- Lab modal ---------- */
+.lab-modal { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 24px; }
+.lab-modal[hidden] { display: none; }
+.lab-backdrop { position: absolute; inset: 0; background: var(--scrim); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); animation: fade .2s ease both; }
+.lab-dialog { position: relative; width: min(1000px, 100%); max-height: calc(100dvh - 48px); overflow: auto; overscroll-behavior: contain; background: var(--bg); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); animation: rise .25s ease both; outline: none; }
+.lab-close { position: absolute; top: 14px; right: 14px; z-index: 2; }
+@keyframes fade { from { opacity: 0; } }
+.lab-modal .lab { padding: 28px 30px 30px; gap: 20px; }
+.lab-modal .lab-head { padding-right: 44px; }
+.lab-modal .lab-ic .sic { background: var(--accent-soft); color: var(--accent); box-shadow: none; }
+.lab-modal .lab-chart { background: transparent; border: 1px solid var(--line); }
+.lab-modal .lab-controls label, .lab-modal .seg-label { font-size: .88rem; }
+.lab-modal .lab-stats div { background: var(--glass); }
+.lab-modal .lab-stats .hl { background: var(--amber-soft); }
+.lab-modal .kql { background: var(--glass); }
+.project-links .btn .sic svg { width: 16px; height: 16px; }
+.rules { display: grid; gap: 8px; }
+.rules .seg-label { font-size: .88rem; color: var(--body); }
+.rule { display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 12px; border-radius: 12px; border: 1px solid var(--line); background: transparent; color: var(--body); font: 500 .84rem var(--sans); text-align: left; cursor: pointer; }
+.rule i { flex: 0 0 auto; width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid var(--line-strong); display: grid; place-items: center; }
+.rule[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); }
+.rule[aria-pressed="true"] i { background: var(--accent); border-color: var(--accent); }
+.rule[aria-pressed="true"] i::after { content: ""; width: 8px; height: 4px; border-left: 2px solid var(--accent-ink); border-bottom: 2px solid var(--accent-ink); transform: rotate(-45deg) translate(1px, -1px); }
+.cu-run { justify-content: center; }
+.lab-modal .cu-run { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); box-shadow: none; }
+.lab-modal .cu-run:hover { background: var(--accent); color: var(--accent-ink); }
+.cu-run[disabled] { opacity: .6; pointer-events: none; }
+.cu-table { display: grid; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; font-size: .82rem; }
+.cu-row { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) 64px 110px; gap: 10px; align-items: center; padding: 8px 12px; border-top: 1px solid var(--line); transition: background .25s; }
+.cu-row:first-child { border-top: 0; }
+.cu-row.head { font: 600 .7rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--glass); }
+.cu-row .nm { color: var(--ink); font-family: var(--mono); font-size: .78rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cu-row .ty { color: var(--muted); }
+.cu-row .ag { color: var(--muted); font-family: var(--mono); font-size: .76rem; }
+.cu-row.scan { background: var(--accent-soft); }
+.st { justify-self: start; padding: 2px 9px; border-radius: 999px; font: 600 .72rem var(--sans); color: var(--muted); background: var(--glass); white-space: nowrap; }
+.st.keep { color: var(--accent-2); background: var(--ok-soft); }
+.st.would { color: var(--amber); background: var(--amber-soft); }
+.st.gone { color: var(--red); background: var(--red-soft); }
+.cu-log { max-height: 150px; overflow: auto; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--glass); font: 500 .78rem/1.65 var(--mono); color: var(--body); display: grid; align-content: start; }
+.cu-log .c { color: var(--muted); }
+.cu-log .w { color: var(--amber); }
+.cu-log .r { color: var(--red); }
+.cu-log .g { color: var(--accent-2); }
+@media (max-width: 860px) {
+  .lab-modal { padding: 0; place-items: end stretch; }
+  .lab-dialog { width: 100%; max-height: 92dvh; border-radius: 22px 22px 0 0; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .lab-modal .lab { padding: 22px 16px 26px; }
+}
+@media (max-width: 560px) {
+  .cu-row { grid-template-columns: minmax(0, 1fr) 56px 96px; }
+  .cu-row .ty { display: none; }
+}
 
 /* ---------- Certifications ---------- */
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
@@ -586,7 +720,8 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
     <section class="view" id="view-skills" aria-labelledby="h-skills" hidden>
       <div class="view-head">
         <h2 id="h-skills" data-ic="skills">Skills</h2>
-        <p>Pick a skill to see where I’ve used it.</p>
+        <p>Pick a skill to see where I’ve used it, and which certifications back it.</p>
+        <p class="skills-key"><i></i>Backed by a certification or badge</p>
       </div>
       <div class="skills-layout">
         <div class="panel skill-groups" data-skill-groups></div>
@@ -636,6 +771,88 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   <div data-drawer-body></div>
 </aside>
 
+
+<div class="lab-modal" data-lab-modal hidden>
+  <div class="lab-backdrop" data-close-lab></div>
+  <div class="lab-dialog" role="dialog" aria-modal="true" aria-label="Interactive lab" tabindex="-1">
+    <button class="icon-btn lab-close" type="button" data-close-lab aria-label="Close lab">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+        <article class="lab" data-lab="autoscale" aria-labelledby="lab1-t" hidden>
+          <header class="lab-head">
+            <span class="lab-ic" data-ic="server"></span>
+            <div><h4 id="lab1-t">Autoscale and cost simulator</h4><p>A pooled virtual desktop host pool over one workday. Compare running every host all day with scaling to demand.</p></div>
+          </header>
+          <div class="lab-grid">
+            <div class="lab-controls" data-as-controls>
+              <label><span>Peak users <b data-out="users"></b></span><input type="range" min="100" max="3000" step="50" value="1200" data-as="users"></label>
+              <label><span>Users per host <b data-out="per"></b></span><input type="range" min="6" max="30" step="1" value="14" data-as="per"></label>
+              <label><span>Workday starts <b data-out="start"></b></span><input type="range" min="5" max="11" step="1" value="8" data-as="start"></label>
+              <label><span>Workday ends <b data-out="end"></b></span><input type="range" min="15" max="22" step="1" value="18" data-as="end"></label>
+              <label><span>Hosts kept on after hours <b data-out="min"></b></span><input type="range" min="0" max="10" step="1" value="2" data-as="min"></label>
+              <label><span>Cost per host per hour <b data-out="rate"></b></span><input type="range" min="0.2" max="3" step="0.05" value="0.9" data-as="rate"></label>
+            </div>
+            <div class="lab-out">
+              <svg class="lab-chart" viewBox="0 0 560 230" role="img" aria-label="Hosts running across the day" data-as-chart></svg>
+              <div class="lab-legend"><span><i class="lg-always"></i>Always on</span><span><i class="lg-auto"></i>Autoscale</span><span><i class="lg-users"></i>Hosts needed by users</span></div>
+              <div class="lab-stats">
+                <div><span>Always on</span><b data-as-o="always"></b><small>per month</small></div>
+                <div><span>Autoscale</span><b data-as-o="auto"></b><small>per month</small></div>
+                <div class="hl"><span>Saved</span><b data-as-o="saved"></b><small data-as-o="pct"></small></div>
+              </div>
+            </div>
+          </div>
+          <p class="lab-note">Assumes 22 workdays and 8 weekend days a month, a 10% capacity buffer, and an illustrative hourly rate. Real rates depend on VM size, region and licensing.</p>
+        </article>
+
+        <article class="lab" data-lab="alerts" aria-labelledby="lab2-t" hidden>
+          <header class="lab-head">
+            <span class="lab-ic" data-ic="pulse"></span>
+            <div><h4 id="lab2-t">Alert rule playground</h4><p>Six hours of monitoring data with one real incident and some noise. Tune the rule until it catches the incident without false alarms.</p></div>
+          </header>
+          <div class="lab-grid">
+            <div class="lab-controls">
+              <div class="seg" role="group" aria-label="Signal" data-al-metric></div>
+              <label><span>Threshold <b data-out="thr"></b></span><input type="range" step="1" data-al="thr"></label>
+              <div class="seg" role="group" aria-label="Evaluate over" data-al-win></div>
+              <div class="seg" role="group" aria-label="Aggregation" data-al-agg></div>
+            </div>
+            <div class="lab-out">
+              <svg class="lab-chart" viewBox="0 0 560 230" role="img" aria-label="Signal over six hours with alert periods" data-al-chart></svg>
+              <div class="lab-legend"><span><i class="lg-users"></i>Signal</span><span><i class="lg-thr"></i>Threshold</span><span><i class="lg-fire"></i>Alert firing</span><span><i class="lg-inc"></i>Real incident</span></div>
+              <div class="lab-verdict" data-al-verdict></div>
+            </div>
+          </div>
+          <pre class="kql" aria-label="Generated KQL alert query"><code data-al-kql></code></pre>
+        </article>
+        <article class="lab" data-lab="cleanup" aria-labelledby="lab3-t" hidden>
+          <header class="lab-head">
+            <span class="lab-ic" data-ic="gear"></span>
+            <div><h4 id="lab3-t">Cleanup automation runbook</h4><p>A scheduled runbook that finds forgotten resources in a desktop subscription. Choose the rules, run it, and watch what it would remove.</p></div>
+          </header>
+          <div class="lab-grid">
+            <div class="lab-controls">
+              <div class="rules" role="group" aria-label="Cleanup rules" data-cu-rules></div>
+              <div class="seg" role="group" aria-label="Snapshot age" data-cu-snap></div>
+              <div class="seg" role="group" aria-label="Profile age" data-cu-prof></div>
+              <div class="seg" role="group" aria-label="Mode" data-cu-mode></div>
+              <button class="btn btn-primary cu-run" type="button" data-cu-run data-ic="gear">Run automation</button>
+            </div>
+            <div class="lab-out">
+              <div class="cu-table" role="table" aria-label="Resources in the subscription" data-cu-table></div>
+              <div class="lab-stats">
+                <div><span>Matched</span><b data-cu-o="matched">0</b><small data-cu-o="of"></small></div>
+                <div class="hl"><span>Saved</span><b data-cu-o="saved">$0</b><small>per month</small></div>
+                <div><span>Time saved</span><b data-cu-o="time">0 min</b><small>vs checking by hand</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="cu-log" aria-live="polite" data-cu-log><span class="c">Press Run automation to start a dry run.</span></div>
+          <pre class="kql" aria-label="Generated PowerShell runbook"><code data-cu-ps></code></pre>
+        </article>
+  </div>
+</div>
+
 <div class="palette" role="dialog" aria-modal="true" aria-label="Jump to" data-palette hidden>
   <label class="sr-only" for="palette-input">Search sections, projects and skills</label>
   <input id="palette-input" placeholder="Search sections, projects, skills…" autocomplete="off">
@@ -650,6 +867,11 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* Older or low-power devices get a still background and globe (still draggable). */
+  const lowPower = !!(navigator.connection?.saveData
+    || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4)
+    || (navigator.deviceMemory && navigator.deviceMemory <= 4));
+  const calm = reduced || lowPower;
   /* Always open at the top: stops the browser restoring (and smooth-scrolling to) the old position on refresh. */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
@@ -710,12 +932,6 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
       approach: ["Designed and enhanced monitoring with Azure Monitor, Log Analytics, uberAgent and Citrix Monitor.", "Added custom scripts and alert rules for the failure patterns seen in past incidents.", "Fed findings from root cause analysis back into new alerts."],
       results: ["25% reduction in mean time to resolution", "Faster incident detection and response"],
       stack: ["Azure Monitor", "Log Analytics", "uberAgent", "Citrix Monitor", "PowerShell"] },
-    { id: "identity", title: "Identity and device management", ctx: "Entra ID · Intune", years: "Ongoing", cat: ["Identity"], featured: true, diagram: "identity",
-      summary: "Secure sign-in and managed, compliant devices with Microsoft Entra ID and Intune.", metric: ["Entra", "+ Intune"],
-      problem: "People need to sign in from anywhere, and the business needs to know that both the person and the device are trusted before they reach company data.",
-      approach: ["Work with Microsoft Entra ID for users, groups, multi-factor sign-in and access to cloud apps.", "Manage Windows devices with Microsoft Intune: enrolment, configuration profiles and compliance policies.", "Combine identity with Active Directory and Group Policy in hybrid and virtual desktop environments.", "Completed Koenig’s M55399A course, Implement and Manage Microsoft Intune (Jun 2026)."],
-      results: ["Identity-first access", "Managed, compliant devices"],
-      stack: ["Entra ID", "Intune", "Active Directory", "Group Policy", "Microsoft 365"] },
     { id: "automation", title: "Operations automation toolkit", ctx: "Enterprise cloud", years: "2024 – 2025", cat: ["Automation"], diagram: "iac",
       summary: "PowerShell and Python scripts and ARM templates that replace repetitive manual work.", metric: ["−30%", "manual effort"],
       problem: "Provisioning, reporting and routine operational tasks were done by hand, which was slow and led to configuration drift.",
@@ -734,24 +950,48 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
       approach: ["Analysed usage trends to find oversized and idle VMs.", "Managed VM lifecycle: deployment, optimisation and deallocation.", "Cleaned up unused resources and kept right-sizing as a routine."],
       results: ["About 12% reduction in cloud spend"],
       stack: ["Microsoft Azure", "PowerShell"] },
+    { id: "identity", title: "Identity and device management", ctx: "Entra ID · Intune", years: "Ongoing", cat: ["Identity"], featured: true, diagram: "identity",
+      summary: "Secure sign-in and managed, compliant devices with Microsoft Entra ID and Intune.", metric: ["Entra", "+ Intune"],
+      problem: "People need to sign in from anywhere, and the business needs to know that both the person and the device are trusted before they reach company data.",
+      approach: ["Work with Microsoft Entra ID for users, groups, multi-factor sign-in and access to cloud apps.", "Manage Windows devices with Microsoft Intune: enrolment, configuration profiles and compliance policies.", "Combine identity with Active Directory and Group Policy in hybrid and virtual desktop environments.", "Completed Koenig’s M55399A course, Implement and Manage Microsoft Intune (Jun 2026)."],
+      results: ["Identity-first access", "Managed, compliant devices"],
+      stack: ["Entra ID", "Intune", "Active Directory", "Group Policy", "Microsoft 365"] },
     { id: "iac", title: "Infrastructure as Code deployments", ctx: "Enterprise cloud", years: "2022 – 2024", cat: ["Automation", "Azure"], diagram: "iac",
       summary: "Repeatable Azure deployments with Terraform, ARM and Bicep.", metric: ["3", "IaC tools"],
       problem: "Manual deployments made environments inconsistent and hard to reproduce.",
       approach: ["Supported Azure infrastructure deployments using Terraform, ARM and Azure Bicep.", "Built PowerShell and Python automation around deployments to improve reliability.", "Worked under ITIL change management with monitoring checks and incident triage."],
       results: ["Consistent, repeatable infrastructure provisioning"],
       stack: ["Terraform", "ARM", "Azure Bicep", "Python", "PowerShell", "Kubernetes (fundamentals)"] },
-    { id: "vantelyra", title: "Vantelyra", ctx: "Founder", years: "Ongoing", cat: ["Web", "Ventures"], link: "https://vantelyra.com/",
-      summary: "My IT services company for small and growing businesses, and its website.", metric: ["Founder", ""],
-      problem: "Small businesses rarely get the IT practices that larger companies take for granted.",
-      approach: ["Founded Vantelyra to offer cloud setup, IT support, Power BI reporting and business websites.", "Lead client engagements and the team’s cloud and IT management work.", "The website, including an IT Health Self-Check, was designed and coded in-house."],
-      results: ["Live at vantelyra.com"],
-      stack: ["HTML", "CSS", "JavaScript", "Web design", "SEO"] },
+    { id: "lab-cleanup", lab: "cleanup", title: "Cleanup automation runbook", ctx: "Interactive lab", years: "Try it", cat: ["Labs", "Automation"],
+      summary: "Run a scheduled cleanup of forgotten disks, snapshots, idle VMs and old FSLogix profiles, safely in dry-run mode first.", metric: ["Dry run", "before any delete"],
+      problem: "Unattached disks, old image snapshots, idle test VMs and profiles of people who left keep costing money long after anyone remembers them.",
+      approach: ["Define clear rules for what counts as safe to remove.", "Run in dry-run mode first, with a full log of every decision.", "Switch to apply mode once the results look right, on a schedule."],
+      results: ["Monthly savings shown", "Every decision logged"],
+      stack: ["PowerShell", "Az PowerShell", "Azure Automation", "Azure Functions"] },
+    { id: "lab-alerts", lab: "alerts", title: "Alert rule playground", ctx: "Interactive lab", years: "Try it", cat: ["Labs", "Monitoring"],
+      summary: "Tune an alert rule against real-looking monitoring data until it catches the incident without crying wolf.", metric: ["KQL", "written live"],
+      problem: "Alerts that fire on every spike get ignored, and alerts that are too strict miss the incident that matters.",
+      approach: ["Pick a signal: logon time, host CPU or FSLogix profile load.", "Set the threshold, the evaluation window and the aggregation.", "See which periods fire, and the KQL query behind the rule."],
+      results: ["Caught or missed, at a glance", "False alarms counted"],
+      stack: ["Azure Monitor", "Log Analytics", "KQL"] },
+    { id: "lab-autoscale", lab: "autoscale", title: "Autoscale and cost simulator", ctx: "Interactive lab", years: "Try it", cat: ["Labs", "Azure", "Citrix"],
+      summary: "Scale a virtual desktop host pool with demand, and see what it saves against running every host all day.", metric: ["~70%", "less compute"],
+      problem: "Desktop host pools are usually sized for the morning peak, then left running all day and night while most hosts sit empty.",
+      approach: ["Scale hosts with the number of signed-in users, plus a capacity buffer.", "Keep a few hosts warm after hours for late or early logons.", "Compare the result with an always-on pool, month by month."],
+      results: ["Live cost comparison", "Host-hours saved"],
+      stack: ["Citrix Autoscale", "Azure Virtual Machines", "Azure Cost Management"] },
     { id: "wordpress", title: "Business websites on WordPress", ctx: "Web development", years: "2021 – 2022", cat: ["Web"],
       summary: "Building and tuning WordPress sites for business goals.", metric: ["SEO", "and speed"],
       problem: "Business websites needed to match their goals and audiences, load fast and be found in search.",
       approach: ["Developed and maintained WordPress websites aligned with business and user requirements.", "Customised themes and plugins for responsive design, functionality and performance.", "Implemented SEO and performance optimisation."],
       results: ["Responsive, search-friendly business sites"],
-      stack: ["WordPress", "SEO"] }
+      stack: ["WordPress", "SEO"] },
+    { id: "vantelyra", title: "Vantelyra", ctx: "Founder", years: "Ongoing", cat: ["Web", "Ventures"], link: "https://vantelyra.com/",
+      summary: "My IT services company for small and growing businesses, and its website.", metric: ["Founder", ""],
+      problem: "Small businesses rarely get the IT practices that larger companies take for granted.",
+      approach: ["Founded Vantelyra to offer cloud setup, IT support, Power BI reporting and business websites.", "Lead client engagements and the team’s cloud and IT management work.", "The website, including an IT Health Self-Check, was designed and coded in-house."],
+      results: ["Live at vantelyra.com"],
+      stack: ["HTML", "CSS", "JavaScript", "Web design", "SEO"] }
   ];
 
   const JOBS = [
@@ -776,17 +1016,35 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   ];
 
   const SKILL_GROUPS = [
-    ["Cloud", ["Microsoft Azure", "Azure Functions", "Citrix DaaS", "AWS (foundational)"]],
+    ["Cloud", ["Microsoft Azure", "Azure Functions", "Azure AI services", "Citrix DaaS", "AWS"]],
     ["Identity and devices", ["Entra ID", "Intune", "Conditional Access", "Windows Autopilot", "Microsoft Graph", "Active Directory", "Group Policy", "Microsoft 365"]],
     ["Infrastructure as Code", ["Terraform", "ARM", "Azure Bicep"]],
     ["Automation", ["PowerShell", "Python", "Bash"]],
     ["Monitoring", ["Azure Monitor", "Log Analytics", "KQL", "uberAgent", "Citrix Monitor", "Zabbix"]],
     ["Virtualisation", ["Windows 365", "Citrix MCS", "FSLogix", "ELM", "Windows Server"]],
     ["DevOps and ITSM", ["Azure DevOps", "Git", "Jira", "Confluence", "ServiceNow", "ITIL"]],
-    ["Also", ["SQL", "PostgreSQL", "Kubernetes (fundamentals)", "WordPress", "SEO"]]
+    ["Also", ["SQL", "PostgreSQL", "Project management", "Kubernetes (fundamentals)", "WordPress", "SEO"]]
   ];
   const GROUP_IC = { "Cloud": "cloud", "Identity and devices": "key", "Infrastructure as Code": "code", "Automation": "gear", "Monitoring": "pulse", "Virtualisation": "desktop", "DevOps and ITSM": "architecture", "Also": "spark" };
   const NEW_SKILLS = ["Windows 365", "Entra ID", "Intune", "Conditional Access", "Windows Autopilot"];
+  /* Which credentials back each skill (ids from CERTS). */
+  const CERT_SKILLS = {
+    E866C9B4: ["Microsoft Azure", "Azure AI services", "Python"],
+    DD8EBBD3: ["Azure DevOps", "Git", "ARM", "Azure Bicep", "Terraform"],
+    C1A9DFE1: ["Microsoft Azure", "Entra ID", "Azure Monitor", "Log Analytics"],
+    "207B194C": ["Azure Functions", "Microsoft Azure", "Python"],
+    "88A473F1": ["Microsoft Azure", "Entra ID", "Azure Monitor", "PowerShell", "Log Analytics"],
+    ba203dc2: ["SQL", "PostgreSQL"],
+    "3a8680ac": ["Azure AI services"],
+    c85f9f06: ["Microsoft Azure"],
+    "81f5459f": ["Intune", "Windows Autopilot", "Conditional Access", "Entra ID"],
+    BG6YB4UD: ["Azure AI services"],
+    "581ce957": ["AWS"],
+    c4e035e0: ["AWS"],
+    "665747e4": ["AWS"],
+    KSVVVM75: ["Project management"]
+  };
+  const certsFor = (sk) => Object.entries(CERT_SKILLS).filter(([, l]) => l.includes(sk)).map(([id]) => id);
   const SKILL_NOTES = {
     "Microsoft Azure": "My main platform since 2022: infrastructure, VMs, monitoring, cost and incident response.",
     "Entra ID": "Users and groups, multi-factor sign-in, Conditional Access and sign-in troubleshooting for thousands of virtual desktop users.",
@@ -801,7 +1059,9 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
     "Azure Functions": "Serverless automation for scheduled reports and cost-saving actions.",
     "KQL": "Queries behind alerts, workbooks and incident investigations in Log Analytics.",
     "Citrix DaaS": "Large production virtual desktop estates integrated with Azure.",
-    "AWS (foundational)": "Earned AWS Solutions Architect – Associate and Cloud Practitioner.",
+    "AWS": "Designing on AWS at associate level: Solutions Architect – Associate and Cloud Practitioner, plus the Cloud Quest training badge.",
+    "Azure AI services": "Building with Azure AI services, from the AI Engineer Associate certification and Microsoft's AI Skills Challenge.",
+    "Project management": "Planning, scoping and stakeholder basics from Google's Foundations of Project Management course, used when leading infrastructure work.",
     "Terraform": "Repeatable Azure deployments.",
     "PowerShell": "Day-to-day automation for operations, reporting and provisioning.",
     "Azure Monitor": "Alerting that cut mean time to resolution by 25%.",
@@ -968,7 +1228,7 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   });
 
   /* ================= Projects ================= */
-  const CAT_IC = { Azure: "cloud", Citrix: "desktop", Identity: "shield", Automation: "code", Monitoring: "pulse", Web: "globe", Ventures: "spark" };
+  const CAT_IC = { Labs: "spark", Azure: "cloud", Citrix: "desktop", Identity: "shield", Automation: "code", Monitoring: "pulse", Web: "globe", Ventures: "spark" };
   const chevSvg = '<svg class="pchev" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
   const projectCard = (p) => `
     <details class="project" data-project="${p.id}">
@@ -983,11 +1243,11 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
         <h5>What I did</h5><ul>${p.approach.map((a) => `<li>${esc(a)}</li>`).join("")}</ul>
         <h5>Result</h5><div class="results">${p.results.map((r) => `<span class="metric">${esc(r)}</span>`).join("")}</div>
         <h5>Stack</h5><div class="chips">${p.stack.map((x) => `<span class="chip">${esc(x)}</span>`).join("")}</div>
-        ${p.diagram || p.link ? `<div class="project-links">${p.diagram ? `<button class="btn btn-ghost" type="button" data-goto-diagram="${p.diagram}">See the ${esc(DIAGRAMS[p.diagram].tab)} diagram</button>` : ""}${p.link ? `<a class="btn btn-ghost" href="${p.link}" target="_blank" rel="noopener">Visit ${p.link.replace("https://", "").replace(/\/$/, "")}</a>` : ""}</div>` : ""}
+        ${p.diagram || p.link || p.lab ? `<div class="project-links">${p.lab ? `<button class="btn btn-primary" type="button" data-open-lab="${p.lab}"><span class="sic">${icon("spark")}</span>Open the lab</button>` : ""}${p.diagram ? `<button class="btn btn-ghost" type="button" data-goto-diagram="${p.diagram}">See the ${esc(DIAGRAMS[p.diagram].tab)} diagram</button>` : ""}${p.link ? `<a class="btn btn-ghost" href="${p.link}" target="_blank" rel="noopener">Visit ${p.link.replace("https://", "").replace(/\/$/, "")}</a>` : ""}</div>` : ""}
       </div>
     </details>`;
   $("[data-featured]").innerHTML = PROJECTS.filter((p) => p.featured).map(projectCard).join("");
-  const CATS = ["All", "Azure", "Citrix", "Identity", "Automation", "Monitoring", "Web", "Ventures"];
+  const CATS = ["All", "Labs", "Azure", "Citrix", "Identity", "Automation", "Monitoring", "Web", "Ventures"];
   let cat = "All";
   const renderProjects = () => {
     $("[data-filters]").innerHTML = CATS.map((c) => `<button class="filter" type="button" aria-pressed="${c === cat}" data-cat="${c}">${c}</button>`).join("");
@@ -1137,7 +1397,7 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   let skill = "Microsoft Azure";
   const renderSkills = () => {
     $("[data-skill-groups]").innerHTML = SKILL_GROUPS.map(([g, list]) => `
-      <div class="skill-group"><h4><span class="sic">${icon(GROUP_IC[g] || "spark")}</span>${g}</h4><div class="chips">${list.map((s) => `<button class="skill${NEW_SKILLS.includes(s) ? " new" : ""}" type="button" aria-pressed="${s === skill}" data-skill="${esc(s)}">${esc(s)}</button>`).join("")}</div></div>`).join("");
+      <div class="skill-group"><h4><span class="sic">${icon(GROUP_IC[g] || "spark")}</span>${g}</h4><div class="chips">${list.map((s) => `<button class="skill${NEW_SKILLS.includes(s) ? " new" : ""}${certsFor(s).length ? " certd" : ""}" type="button" aria-pressed="${s === skill}" data-skill="${esc(s)}"${certsFor(s).length ? ` title="Backed by ${certsFor(s).length} credential${certsFor(s).length > 1 ? "s" : ""}"` : ""}>${esc(s)}</button>`).join("")}</div></div>`).join("");
     const keys = SKILL_ALIASES[skill] || [skill];
     const ps = PROJECTS.filter((p) => p.stack.some((x) => keys.includes(x)));
     const js = JOBS.filter((j) => j.skills.some((x) => keys.includes(x)));
@@ -1148,10 +1408,266 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
     $("[data-skill-detail]").innerHTML = `
       <p class="crumb">selected skill</p><h4>${esc(skill)}</h4>
       ${SKILL_NOTES[skill] ? `<p>${esc(SKILL_NOTES[skill])}</p>` : ""}
+      ${(() => { const cs = certsFor(skill).map((id) => CERTS.find((c) => c.id === id)).filter(Boolean); return cs.length ? `<p class="crumb">backed by</p><div class="backed">${cs.map((c) => `<a href="${esc(c.url)}" target="_blank" rel="noopener" title="${esc(c.name)}"><img src="${badgeOf(c)}" alt="" draggable="false"><span>${esc(c.name)}</span></a>`).join("")}</div>` : ""; })()}
       <div class="used-in">${items.length ? items.join("") : "<p>A working skill from my CV.</p>"}</div>`;
   };
   renderSkills();
   $("[data-skill-groups]").addEventListener("click", (e) => { const b = e.target.closest("[data-skill]"); if (b) { skill = b.dataset.skill; renderSkills(); } });
+
+  /* ================= Interactive labs ================= */
+  const SVGNS = "http://www.w3.org/2000/svg";
+  const money = (v) => "$" + Math.round(v).toLocaleString("en-US");
+  const hourLbl = (h) => `${((h + 11) % 12) + 1}${h < 12 || h === 24 ? "am" : "pm"}`;
+  /* Lab 1: autoscale */
+  const asIn = Object.fromEntries($$("[data-as]").map((el) => [el.dataset.as, el]));
+  const asChart = $("[data-as-chart]");
+  const profile = (h, start, end) => {
+    if (h < start - 1 || h >= end + 1) return 0.03;
+    if (h < start) return 0.15;
+    if (h >= end) return 0.12;
+    const t = (h - start) / Math.max(1, end - start);
+    let v = t < 0.15 ? 0.45 + (t / 0.15) * 0.55 : t > 0.85 ? 1 - ((t - 0.85) / 0.15) * 0.55 : 1;
+    if (Math.abs(h - (start + (end - start) / 2)) < 0.6) v *= 0.82;
+    return v;
+  };
+  const renderAS = () => {
+    const users = +asIn.users.value, per = +asIn.per.value, rate = +asIn.rate.value, min = +asIn.min.value;
+    let start = +asIn.start.value, end = +asIn.end.value;
+    if (end - start < 4) { end = start + 4; asIn.end.value = end; }
+    const outs = { users: users.toLocaleString("en-US"), per, start: hourLbl(start), end: hourLbl(end), min, rate: "$" + rate.toFixed(2) };
+    Object.entries(outs).forEach(([k, v]) => { const o = $(`[data-out="${k}"]`); if (o) o.textContent = v; });
+    const need = (u) => Math.max(min, Math.ceil((u / per) * 1.1));
+    const peakHosts = Math.ceil((users / per) * 1.1);
+    const day = Array.from({ length: 24 }, (_, h) => { const u = Math.round(users * profile(h, start, end)); return { h, u, hosts: Math.min(peakHosts, need(u)) }; });
+    const weekendHosts = need(Math.round(users * 0.03)) * 24;
+    const autoHours = day.reduce((a, d) => a + d.hosts, 0) * 22 + weekendHosts * 8;
+    const alwaysHours = peakHosts * 24 * 30;
+    const always = alwaysHours * rate, auto = autoHours * rate;
+    $("[data-as-o=always]").textContent = money(always);
+    $("[data-as-o=auto]").textContent = money(auto);
+    $("[data-as-o=saved]").textContent = money(always - auto);
+    $("[data-as-o=pct]").textContent = `${Math.round((1 - auto / always) * 100)}% less, ${Math.round(alwaysHours - autoHours).toLocaleString("en-US")} host-hours`;
+    const W = 560, H = 230, L = 36, R = 10, T = 14, B = 26, cw = (W - L - R) / 24, ymax = Math.max(peakHosts, 1) * 1.08;
+    const x = (h) => L + h * cw, y = (v) => T + (H - T - B) * (1 - v / ymax);
+    const step = day.map((d) => `L${x(d.h).toFixed(1)},${y(d.hosts).toFixed(1)} L${x(d.h + 1).toFixed(1)},${y(d.hosts).toFixed(1)}`).join(" ");
+    const area = `M${x(0)},${y(0)} ${step} L${x(24)},${y(0)} Z`;
+    const uline = day.map((d, i) => `${i ? "L" : "M"}${x(d.h + 0.5).toFixed(1)},${y((d.u / per) * 1.1).toFixed(1)}`).join(" ");
+    const ticks = [0, 6, 12, 18, 24].map((h) => `<text x="${x(h)}" y="${H - 8}" text-anchor="${h === 0 ? "start" : h === 24 ? "end" : "middle"}">${h === 24 ? "12am" : hourLbl(h)}</text>`).join("");
+    const yt = [0, 0.5, 1].map((f) => { const v = Math.round(peakHosts * f); return `<text x="${L - 6}" y="${y(v) + 3}" text-anchor="end">${v}</text><line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" />`; }).join("");
+    asChart.innerHTML = `${yt}
+      <path d="${area}" fill="var(--accent)" fill-opacity=".12" stroke="var(--accent)" stroke-width="1.75" stroke-linejoin="round"/>
+      <line x1="${x(0)}" x2="${x(24)}" y1="${y(peakHosts)}" y2="${y(peakHosts)}" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
+      <path d="${uline}" fill="none" stroke="var(--accent-2)" stroke-width="1.75" stroke-opacity=".85" stroke-linejoin="round" stroke-linecap="round"/>
+      <text x="${W - R}" y="${y(peakHosts) - 5}" text-anchor="end">${peakHosts} hosts all day</text>
+      <line class="as-now" x1="0" x2="0" y1="${T}" y2="${H - B}" stroke="var(--amber)" stroke-width="1.5"/>
+      <g class="as-tip"><rect rx="6" width="150" height="40" fill="var(--bg)" stroke="var(--line-strong)"/><text class="t1" x="8" y="16"></text><text class="t2" x="8" y="32"></text></g>
+      ${ticks}`;
+    asChart._day = day; asChart._geo = { x, y, cw, L, W, R, T };
+  };
+  let asT = 9;
+  const tickAS = () => {
+    const d = asChart._day; if (!d) return;
+    const { x, y, W, R, T } = asChart._geo, cur = d[Math.floor(asT) % 24];
+    const nx = x(asT % 24);
+    const now = asChart.querySelector(".as-now"), tip = asChart.querySelector(".as-tip");
+    now.setAttribute("x1", nx); now.setAttribute("x2", nx);
+    const tx = Math.min(Math.max(nx + 8, 40), W - R - 154);
+    tip.setAttribute("transform", `translate(${tx},${T + 4})`);
+    tip.querySelector(".t1").textContent = `${hourLbl(cur.h)} · ${cur.u.toLocaleString("en-US")} users`;
+    tip.querySelector(".t2").textContent = `${cur.hosts} hosts running`;
+  };
+  $$("[data-as]").forEach((el) => el.addEventListener("input", () => { renderAS(); tickAS(); }));
+  renderAS(); tickAS();
+  asChart.addEventListener("pointermove", (e) => {
+    const r = asChart.getBoundingClientRect(), { L, cw } = asChart._geo;
+    asT = Math.min(23.99, Math.max(0, ((e.clientX - r.left) * (560 / r.width) - L) / cw)); tickAS();
+  });
+
+  /* Lab 2: alert playground */
+  const rng = (seed) => () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+  const ALM = {
+    logon: { label: "Logon duration", unit: "s", base: 24, noise: 4, spike: 30, min: 20, max: 90, def: 45,
+      kql: (t, w, a) => [`<span class="k">CitrixLogon_CL</span>`, `| <span class="k">where</span> TimeGenerated &gt; <span class="k">ago</span>(<span class="n">${w}m</span>)`, `| <span class="k">summarize</span> Value = <span class="k">${a}</span>(LogonDurationSec_d) <span class="k">by</span> <span class="k">bin</span>(TimeGenerated, <span class="n">${w}m</span>), DeliveryGroup_s`, `| <span class="k">where</span> Value &gt; <span class="n">${t}</span>`] },
+    cpu: { label: "Host CPU", unit: "%", base: 52, noise: 9, spike: 40, min: 50, max: 100, def: 85,
+      kql: (t, w, a) => [`<span class="k">Perf</span>`, `| <span class="k">where</span> ObjectName == <span class="s">"Processor"</span> <span class="k">and</span> CounterName == <span class="s">"% Processor Time"</span>`, `| <span class="k">where</span> TimeGenerated &gt; <span class="k">ago</span>(<span class="n">${w}m</span>)`, `| <span class="k">summarize</span> Value = <span class="k">${a}</span>(CounterValue) <span class="k">by</span> <span class="k">bin</span>(TimeGenerated, <span class="n">${w}m</span>), Computer`, `| <span class="k">where</span> Value &gt; <span class="n">${t}</span>`] },
+    profile: { label: "Profile load", unit: "s", base: 6, noise: 1.6, spike: 14, min: 5, max: 40, def: 14,
+      kql: (t, w, a) => [`<span class="k">FSLogixProfile_CL</span>`, `| <span class="k">where</span> TimeGenerated &gt; <span class="k">ago</span>(<span class="n">${w}m</span>)`, `| <span class="k">summarize</span> Value = <span class="k">${a}</span>(ProfileLoadSec_d) <span class="k">by</span> <span class="k">bin</span>(TimeGenerated, <span class="n">${w}m</span>), HostPool_s`, `| <span class="k">where</span> Value &gt; <span class="n">${t}</span>`] }
+  };
+  const N = 72, INC = [44, 53];
+  const series = {};
+  Object.entries(ALM).forEach(([k, m], i) => {
+    const r = rng(97 + i * 13);
+    series[k] = Array.from({ length: N }, (_, j) => {
+      let v = m.base + (r() - 0.5) * 2 * m.noise + Math.sin(j / 9) * m.noise * 0.5;
+      if (j === 17 || j === 31) v += m.spike * 1.05;
+      if (j === 62) v += m.spike * 0.8;
+      if (j >= INC[0] && j <= INC[1]) v += m.spike * (0.7 + 0.3 * Math.sin(((j - INC[0]) / (INC[1] - INC[0])) * Math.PI));
+      return Math.max(0, +v.toFixed(1));
+    });
+  });
+  const al = { metric: "logon", win: 15, agg: "max" };
+  const thrIn = $('[data-al="thr"]');
+  const seg = (el, label, opts, key) => {
+    el.innerHTML = `<span class="seg-label">${label}</span>` + opts.map(([v, t]) => `<button type="button" data-v="${v}" aria-pressed="${String(al[key]) === String(v)}">${t}</button>`).join("");
+    el.onclick = (e) => { const b = e.target.closest("button"); if (!b) return; al[key] = key === "win" ? +b.dataset.v : b.dataset.v; if (key === "metric") setMetric(); seg(el, label, opts, key); renderAL(); };
+  };
+  const setMetric = () => { const m = ALM[al.metric]; thrIn.min = m.min; thrIn.max = m.max; thrIn.value = m.def; };
+  const renderAL = () => {
+    const m = ALM[al.metric], data = series[al.metric], thr = +thrIn.value, k = al.win / 5;
+    $('[data-out="thr"]').textContent = `${thr}${m.unit}`;
+    const agg = data.map((_, i) => { const w = data.slice(Math.max(0, i - k + 1), i + 1); return al.agg === "max" ? Math.max(...w) : w.reduce((a, b) => a + b, 0) / w.length; });
+    const fire = agg.map((v) => v > thr);
+    const runs = []; fire.forEach((f, i) => { if (f && !fire[i - 1]) runs.push([i, i]); if (f) runs[runs.length - 1][1] = i; });
+    const hit = runs.filter(([a, b]) => b >= INC[0] && a <= INC[1] + k);
+    const falseA = runs.length - hit.length;
+    const W = 560, H = 230, L = 36, R = 10, T = 14, B = 26, cw = (W - L - R) / (N - 1);
+    const vmax = Math.max(...data, thr) * 1.08;
+    const x = (i) => L + i * cw, y = (v) => T + (H - T - B) * (1 - v / vmax);
+    const line = data.map((v, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+    const shades = runs.map(([a, b]) => `<rect x="${x(a) - cw / 2}" y="${H - B - 6}" width="${(b - a + 1) * cw}" height="5" rx="2" fill="var(--red)" fill-opacity=".75"/><rect x="${x(a) - cw / 2}" y="${T}" width="${(b - a + 1) * cw}" height="${H - T - B - 6}" fill="var(--red)" fill-opacity=".07"/>`).join("");
+    const ticks = [0, 12, 24, 36, 48, 60, 71].map((i) => `<text x="${x(i)}" y="${H - 8}" text-anchor="${i === 0 ? "start" : i === 71 ? "end" : "middle"}">${i === 71 ? "now" : `-${Math.round((N - 1 - i) * 5 / 60)}h`}</text>`).join("");
+    const yt = [0, 0.5, 1].map((f) => { const v = Math.round(vmax * f / 1.08); return `<text x="${L - 6}" y="${y(v) + 3}" text-anchor="end">${v}</text><line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/>`; }).join("");
+    $("[data-al-chart]").innerHTML = `${yt}
+      <rect x="${x(INC[0]) - cw / 2}" y="${T}" width="${(INC[1] - INC[0] + 1) * cw}" height="${H - T - B}" fill="var(--amber)" fill-opacity=".06" stroke="var(--amber)" stroke-dasharray="4 4" stroke-opacity=".5"/>
+      <text x="${x((INC[0] + INC[1]) / 2)}" y="${T + 12}" text-anchor="middle" style="fill:var(--amber)">real incident</text>
+      ${shades}
+      <path d="${line}" fill="none" stroke="var(--accent-2)" stroke-width="1.6" stroke-linejoin="round"/>
+      <line x1="${L}" x2="${W - R}" y1="${y(thr)}" y2="${y(thr)}" stroke="var(--amber)" stroke-width="2" stroke-dasharray="7 5"/>
+      ${ticks}`;
+    const caught = hit.length > 0;
+    const delay = caught ? Math.max(0, hit[0][0] - INC[0]) * 5 : null;
+    $("[data-al-verdict]").innerHTML =
+      (caught ? `<span class="good">Caught the incident${delay ? ` after ${delay} min` : " right away"}</span>` : `<span class="bad">Missed the incident</span>`) +
+      (falseA ? `<span class="${falseA > 2 ? "bad" : "warn"}">${falseA} false alarm${falseA > 1 ? "s" : ""}</span>` : `<span class="good">No false alarms</span>`) +
+      (caught && !falseA ? `<span class="good">Good rule</span>` : "");
+    $("[data-al-kql]").innerHTML = `<span class="c">// ${esc(m.label)}: alert when the ${al.win}-minute ${al.agg} is above ${thr}${m.unit}</span>\n` + m.kql(thr, al.win, al.agg).join("\n");
+  };
+  setMetric();
+  seg($("[data-al-metric]"), "Signal", Object.entries(ALM).map(([k, m]) => [k, m.label]), "metric");
+  seg($("[data-al-win]"), "Evaluate over", [[5, "5 min"], [15, "15 min"], [30, "30 min"]], "win");
+  seg($("[data-al-agg]"), "Aggregation", [["max", "Max"], ["avg", "Average"]], "agg");
+  thrIn.addEventListener("input", renderAL);
+  renderAL();
+
+  /* Lab 3: cleanup automation */
+  const RES = [
+    { ty: "Managed disk", nm: "disk-vda-old-014", st: "Unattached", age: 94, cost: 19.7, rule: "disk" },
+    { ty: "Managed disk", nm: "disk-tmp-build-02", st: "Unattached", age: 4, cost: 9.9, rule: "disk" },
+    { ty: "Managed disk", nm: "disk-vda-prod-101", st: "Attached", age: 210, cost: 19.7, rule: "disk" },
+    { ty: "Snapshot", nm: "snap-golden-2025-03", st: "", age: 240, cost: 6.4, rule: "snap" },
+    { ty: "Snapshot", nm: "snap-golden-2026-08", st: "", age: 75, cost: 6.4, rule: "snap" },
+    { ty: "Snapshot", nm: "snap-golden-2026-10", st: "", age: 21, cost: 6.4, rule: "snap" },
+    { ty: "Virtual machine", nm: "vm-vda-test-07", st: "Deallocated", age: 41, cost: 11.5, rule: "vm" },
+    { ty: "Virtual machine", nm: "vm-jump-old", st: "Deallocated", age: 9, cost: 8.2, rule: "vm" },
+    { ty: "Virtual machine", nm: "vm-vda-prod-022", st: "Running", age: 0, cost: 0, rule: "vm" },
+    { ty: "FSLogix profile", nm: "profile_jdelacruz.vhdx", st: "", age: 120, cost: 1.1, rule: "prof" },
+    { ty: "FSLogix profile", nm: "profile_areyes.vhdx", st: "", age: 64, cost: 0.9, rule: "prof" },
+    { ty: "FSLogix profile", nm: "profile_msantos.vhdx", st: "", age: 2, cost: 1.2, rule: "prof" }
+  ];
+  const RULES = [["disk", "Unattached disks older than 7 days"], ["snap", "Old image snapshots"], ["vm", "VMs deallocated for 30+ days"], ["prof", "FSLogix profiles not used recently"]];
+  const cu = { on: { disk: true, snap: true, vm: true, prof: false }, snap: 60, prof: 60, mode: "dry", running: false };
+  const ageTxt = (r) => r.rule === "vm" && r.st === "Running" ? "running" : `${r.age} d`;
+  const matchR = (r) => {
+    if (!cu.on[r.rule]) return [false, "rule off"];
+    if (r.rule === "disk") return r.st !== "Unattached" ? [false, "attached to a VM"] : r.age <= 7 ? [false, "too new"] : [true, `unattached ${r.age} days`];
+    if (r.rule === "snap") return r.age > cu.snap ? [true, `${r.age} days old`] : [false, `newer than ${cu.snap} days`];
+    if (r.rule === "vm") return r.st !== "Deallocated" ? [false, "in use"] : r.age <= 30 ? [false, `idle only ${r.age} days`] : [true, `idle ${r.age} days`];
+    return r.age > cu.prof ? [true, `no sign-in for ${r.age} days`] : [false, "recently used"];
+  };
+  const cuTable = $("[data-cu-table]"), cuLog = $("[data-cu-log]");
+  const drawTable = (states = {}) => {
+    cuTable.innerHTML = `<div class="cu-row head" role="row"><span role="columnheader">Resource</span><span class="ty" role="columnheader">Type</span><span role="columnheader">Age</span><span role="columnheader">Result</span></div>` +
+      RES.map((r, i) => `<div class="cu-row" role="row" data-r="${i}"><span class="nm" role="cell">${esc(r.nm)}</span><span class="ty" role="cell">${esc(r.ty)}</span><span class="ag" role="cell">${ageTxt(r)}</span><span role="cell"><span class="st ${states[i]?.[0] || ""}">${esc(states[i]?.[1] || "Not checked")}</span></span></div>`).join("");
+  };
+  const cuPs = () => {
+    const wi = cu.mode === "dry" ? " -WhatIf" : "";
+    const L = [`<span class="c"># Scheduled runbook (Azure Automation). ${cu.mode === "dry" ? "Dry run: nothing is deleted." : "Apply mode: matches are removed."}</span>`, `<span class="k">Connect-AzAccount</span> -Identity | <span class="k">Out-Null</span>`];
+    if (cu.on.disk) L.push(`<span class="k">Get-AzDisk</span> | <span class="k">Where-Object</span> { $_.DiskState -eq <span class="s">'Unattached'</span> -and $_.TimeCreated -lt (<span class="k">Get-Date</span>).AddDays(<span class="n">-7</span>) } |`, `  <span class="k">Remove-AzDisk</span> -Force${wi}`);
+    if (cu.on.snap) L.push(`<span class="k">Get-AzSnapshot</span> | <span class="k">Where-Object</span> { $_.TimeCreated -lt (<span class="k">Get-Date</span>).AddDays(<span class="n">-${cu.snap}</span>) } |`, `  <span class="k">Remove-AzSnapshot</span> -Force${wi}`);
+    if (cu.on.vm) L.push(`<span class="k">Get-AzVM</span> -Status | <span class="k">Where-Object</span> { $_.PowerState -eq <span class="s">'VM deallocated'</span> -and [datetime]$_.Tags[<span class="s">'LastActive'</span>] -lt (<span class="k">Get-Date</span>).AddDays(<span class="n">-30</span>) } |`, `  <span class="k">Remove-AzVM</span> -Force${wi}`);
+    if (cu.on.prof) L.push(`<span class="k">Get-ChildItem</span> <span class="s">'\\\\files\\profiles'</span> -Filter *.vhdx -Recurse | <span class="k">Where-Object</span> { $_.LastWriteTime -lt (<span class="k">Get-Date</span>).AddDays(<span class="n">-${cu.prof}</span>) } |`, `  <span class="k">Remove-Item</span>${wi}`);
+    if (L.length === 2) L.push(`<span class="c"># Turn on at least one rule.</span>`);
+    $("[data-cu-ps]").innerHTML = L.join("\n");
+  };
+  const cuReset = () => {
+    drawTable();
+    ["matched", "saved", "time"].forEach((k) => { $(`[data-cu-o=${k}]`).textContent = k === "saved" ? "$0" : k === "time" ? "0 min" : "0"; });
+    $("[data-cu-o=of]").textContent = `of ${RES.length} checked`;
+    cuLog.innerHTML = `<span class="c">Press Run automation to start a ${cu.mode === "dry" ? "dry run" : "cleanup"}.</span>`;
+    cuPs();
+  };
+  const cuControls = () => {
+    $("[data-cu-rules]").innerHTML = `<span class="seg-label">Rules</span>` + RULES.map(([k, t]) => `<button class="rule" type="button" data-rule="${k}" aria-pressed="${cu.on[k]}"><i></i>${t}</button>`).join("");
+    const sg = (sel, label, key, opts) => { $(sel).innerHTML = `<span class="seg-label">${label}</span>` + opts.map(([v, t]) => `<button type="button" data-${key}="${v}" aria-pressed="${String(cu[key]) === String(v)}">${t}</button>`).join(""); };
+    sg("[data-cu-snap]", "Snapshot older than", "snap", [[30, "30 days"], [60, "60 days"], [90, "90 days"]]);
+    sg("[data-cu-prof]", "Profile unused for", "prof", [[30, "30 days"], [60, "60 days"], [90, "90 days"]]);
+    sg("[data-cu-mode]", "Mode", "mode", [["dry", "Dry run"], ["apply", "Apply"]]);
+    $("[data-cu-run]").lastChild.textContent = cu.mode === "dry" ? "Run dry run" : "Run cleanup";
+  };
+  $('[data-lab="cleanup"] .lab-controls').addEventListener("click", (e) => {
+    if (cu.running) return;
+    const b = e.target.closest("button"); if (!b || b.matches("[data-cu-run]")) return;
+    if (b.dataset.rule) cu.on[b.dataset.rule] = !cu.on[b.dataset.rule];
+    else if (b.dataset.snap) cu.snap = +b.dataset.snap;
+    else if (b.dataset.prof) cu.prof = +b.dataset.prof;
+    else if (b.dataset.mode) cu.mode = b.dataset.mode;
+    cuControls(); cuReset();
+  });
+  const sleep = (ms) => new Promise((r) => setTimeout(r, reduced ? 0 : ms));
+  $("[data-cu-run]").addEventListener("click", async () => {
+    if (cu.running) return;
+    cu.running = true; $("[data-cu-run]").disabled = true;
+    const states = {}; let matched = 0, saved = 0;
+    drawTable(); cuLog.innerHTML = "";
+    const log = (cls, t) => { cuLog.insertAdjacentHTML("beforeend", `<span class="${cls}">${t}</span>`); cuLog.scrollTop = cuLog.scrollHeight; };
+    const stamp = () => new Date().toTimeString().slice(0, 8);
+    log("c", `[${stamp()}] Runbook started in ${cu.mode === "dry" ? "dry-run" : "apply"} mode`);
+    for (let i = 0; i < RES.length; i++) {
+      const r = RES[i], row = cuTable.querySelector(`[data-r="${i}"]`);
+      row?.classList.add("scan"); await sleep(260);
+      const [hit, why] = matchR(r);
+      if (hit) { matched++; saved += r.cost; states[i] = cu.mode === "dry" ? ["would", "Would remove"] : ["gone", "Removed"]; log(cu.mode === "dry" ? "w" : "r", `[${stamp()}] ${cu.mode === "dry" ? "WHATIF" : "REMOVED"}  ${esc(r.nm)} (${why}, $${r.cost.toFixed(2)}/mo)`); }
+      else { states[i] = ["keep", "Kept"]; log("c", `[${stamp()}] kept    ${esc(r.nm)} (${why})`); }
+      drawTable(states);
+      $("[data-cu-o=matched]").textContent = matched;
+      $("[data-cu-o=saved]").textContent = "$" + saved.toFixed(0);
+      $("[data-cu-o=time]").textContent = `${(i + 1) * 4} min`;
+    }
+    log("g", `[${stamp()}] Done. ${matched} of ${RES.length} matched, about $${saved.toFixed(0)} a month ${cu.mode === "dry" ? "can be saved" : "saved"}.`);
+    cu.running = false; $("[data-cu-run]").disabled = false;
+  });
+  cuControls(); cuReset();
+
+  /* Lab modal */
+  const labModal = $("[data-lab-modal]"), labDialog = labModal.querySelector(".lab-dialog");
+  let labReturn = null;
+  const openLab = (id, from) => {
+    labReturn = from || document.activeElement;
+    $$("[data-lab]").forEach((el) => { el.hidden = el.dataset.lab !== id; });
+    labDialog.setAttribute("aria-labelledby", labModal.querySelector(`[data-lab="${id}"] h4`).id);
+    labModal.hidden = false; document.documentElement.style.overflow = "hidden";
+    labDialog.scrollTop = 0; labDialog.focus();
+    if (id === "autoscale") { renderAS(); tickAS(); }
+  };
+  const closeLab = () => {
+    if (labModal.hidden) return;
+    labModal.hidden = true; document.documentElement.style.overflow = "";
+    labReturn?.focus?.();
+  };
+  document.addEventListener("click", (e) => {
+    const o = e.target.closest("[data-open-lab]"); if (o) { openLab(o.dataset.openLab, o); return; }
+    if (e.target.closest("[data-close-lab]")) closeLab();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (labModal.hidden) return;
+    if (e.key === "Escape") { e.stopPropagation(); closeLab(); }
+    if (e.key === "Tab") {
+      const f = [...labDialog.querySelectorAll("button, input, [href]")].filter((el) => !el.closest("[hidden]") && !el.disabled);
+      if (!f.length) return;
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && document.activeElement === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
+    }
+  }, true);
 
   /* ================= Certifications ================= */
   const CFILTERS = ["All", "Microsoft", "AWS", "Google"];
@@ -1228,11 +1744,12 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   syncTheme();
 
   /* ================= No text copying ================= */
+  const SELECTABLE = "input, #view-experience, #view-contact";
   ["copy", "cut", "dragstart", "contextmenu"].forEach((ev) => document.addEventListener(ev, (e) => {
-    if (e.target.closest?.("input")) return;
+    if (e.target.closest?.(SELECTABLE)) return;
     e.preventDefault();
   }));
-  document.addEventListener("selectstart", (e) => { if (!e.target.closest?.("input")) e.preventDefault(); });
+  document.addEventListener("selectstart", (e) => { if (!(e.target.closest ? e.target : e.target.parentElement)?.closest?.(SELECTABLE)) e.preventDefault(); });
 
   /* ================= Toast and copy email ================= */
   const toast = $("[data-toast]");
@@ -1339,7 +1856,7 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   };
   let raf;
   skyColors(); resize();
-  addEventListener("resize", () => { resize(); if (reduced) draw(); });
+  addEventListener("resize", () => { resize(); if (calm) draw(); });
 
   /* ================= Hero globe: a rotating dotted sphere with links out of Manila ================= */
   const gWrap = $("[data-globe-wrap]"), gc = $("[data-globe]"), g = gc.getContext("2d");
@@ -1434,9 +1951,9 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   gWrap.addEventListener("pointermove", (e) => {
     if (!drag) return;
     userLon = drag.lon + (e.clientX - drag.x) * .35;
-    if (reduced) lon0 = -HOME.lon + userLon;
+    if (calm) lon0 = -HOME.lon + userLon;
     tilt = Math.max(-50 * RAD, Math.min(50 * RAD, drag.tilt - (e.clientY - drag.y) * .3 * RAD));
-    if (reduced) gDraw(0);
+    if (calm) gDraw(0);
   });
   addEventListener("pointerup", () => { drag = null; });
   gColors(); gSize();
@@ -1444,14 +1961,14 @@ kbd { font: 500 .72rem var(--mono); padding: 2px 6px; border: 1px solid var(--li
   new MutationObserver(() => { gColors(); gDraw(performance.now()); }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
   matchMedia("(prefers-color-scheme: light)").addEventListener?.("change", () => { gColors(); gDraw(performance.now()); });
   new ResizeObserver(() => { gSize(); gDraw(performance.now()); }).observe(gWrap);
-  if (reduced) gDraw(0);
+  if (calm) gDraw(0);
   else {
     new IntersectionObserver(([en]) => { const was = gOn; gOn = en.isIntersecting; if (gOn && !was) requestAnimationFrame(gLoop); }).observe(gWrap);
     document.addEventListener("visibilitychange", () => { if (!document.hidden && gOn) requestAnimationFrame(gLoop); });
     requestAnimationFrame(gLoop);
   }
-  matchMedia("(prefers-color-scheme: light)").addEventListener?.("change", () => { skyColors(); if (reduced) draw(); });
-  if (reduced) draw();
+  matchMedia("(prefers-color-scheme: light)").addEventListener?.("change", () => { skyColors(); if (calm) draw(); });
+  if (calm) draw();
   else {
     raf = requestAnimationFrame(tick);
     document.addEventListener("visibilitychange", () => { if (!document.hidden) { cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); } });
